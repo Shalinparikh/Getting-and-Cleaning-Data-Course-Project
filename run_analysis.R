@@ -23,9 +23,9 @@ x <- x[,mainfeatures[,1]]
 
 
 #3. Uses descriptive activity names to name the activities in the data set
-
-y <- merge(y,activities,sort = FALSE)
-colnames(y)<- c('Activity','Activitylabel')
+colnames(y)<- 'Activity'
+y$Activitylabel <- factor(y$Activity, labels = as.character(activities[,2]))
+Activitylabel <- y[,-1]
 
 
 #4. Appropriately labels the data set with descriptive variable names.
